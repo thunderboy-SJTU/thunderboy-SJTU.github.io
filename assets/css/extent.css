@@ -135,3 +135,8 @@
 .social-share-wrapper {
     margin:10px;
 }
+
+/* copyright */
+footer .copyright {
+    font-size:18px;
+}
