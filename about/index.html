@@ -1,0 +1,63 @@
+---
+layout: page
+title: About Me
+description: Live with honor, die with glory.
+modified: 2016-02-01
+comments: false
+---
+
+<div class="small-wrapper">
+        <div class="about-container">
+          <section class="about-header">
+            <div class="author-image-container">
+              <img src="{{site.url}}/images/profile.png" alt="{{site.owner.name}}">
+            </div>
+            <p class="subtitle">{{site.owner.name}}</p>
+          </section>
+          <section class="about-body">
+            <div class="about-content">
+              <!--copied from markdown -->
+              <blockquote><p>犹豫，就会败北；果断，就会白给。</p></blockquote>
+
+              <p>大家好，我是<strong>ThunderBoy</strong>，又名<strong>奔雷少年</strong>，大家可以叫我<strong>奔少</strong>。</p>
+
+              <p>我就读于东川路男子职业学院（SJTU)，现在是软件工程专业的硕士研究生，在REINS实验室潜心科研（打工）。</p>
+
+              <p>我最尊敬的人是陈昊鹏（副）教授，他不仅在拔河运动上极具天赋，翻译的Java书籍也是深入浅出，饱受赞誉。我最欣赏的女明星是D.va女士，在她玩游戏就是为了赢的教导下，我终于成为了一名光荣的黄金段位选手。</p>
+
+              <p>本博客仅为我闲时消遣之用，如有错误，还望海涵，且恳请各位批评指正，感激不尽。</p>
+
+              <p></p>
+    
+              <h4>Papers</h4>
+
+              <ul>
+                  <li><a href="https://ieeexplore.ieee.org/document/8672347/">A Topology-Based Approach to Pattern Recognition on Graph-Structured Data</a></li>
+              </ul>
+            </div>
+            <ul class="contact-list">
+            {% if site.email %}
+              <li class="email"><a href="mailto:{{site.owner.email}}"><i class="fa fa-envelope-o"></i></a></li>
+            {% else %}
+              <li class="email"><a href="mailto:thunderboy@sjtu.edu.cn"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+            {% endif %}
+      
+          
+            {% if site.website %}
+              <li class="website"><a href="http://{{site.owner.website}}" target="_blank"><i class="fa fa-globe"></i></a></li>
+            {% else %}
+              <li class="website"><a href="https://thunderboy-SJTU.github.io" target="_blank"><i class="fa fa-globe" aria-hidden="true"></i></a></li>
+            {% endif %}
+        
+      
+            {% if site.github %}
+              <li class="github"><a href="http://github.com/{{site.owner.github}}" target="_blank"><i class="fa fa-github"></i></a></li>
+            {% else %}
+              <li class="github"><a href="http://github.com/thunderboy-SJTU" target="_blank"><i class="fa fa-github" aria-hidden="true"></i></a></li>
+            {% endif %}
+      
+            </ul>
+          </section> <!-- End About Body-->
+        </div> <!-- End About Container -->
+      </div> <!-- End Small Wrapper -->
+

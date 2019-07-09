@@ -1,6 +1,13 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="{{ site.url }}/assets/js/plugins/jquery.dlmenu.js" | prepend: site.baseurl }}"></script>
+<script src="{{ site.url }}/assets/js/plugins/jquery.fitvids.js" | prepend: site.baseurl }}"></script>
+<script src="{{ site.url }}/assets/js/plugins/jquery.magnific-popup.js" | prepend: site.baseurl }}"></script>
 <script src="{{ site.url }}/assets/js/scripts.min.js"></script>
+
+<script src="//cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="{{ site.url }}/assets/js/plugins/sweet-scroll.min.js" | prepend: site.baseurl }}"></script>
+<script src="{{ site.url }}/assets/js/plugins/particle.js" | prepend: site.baseurl }}"></script>
 
 {% if site.google_analytics %}
 <!-- Asynchronous Google Analytics snippet -->
@@ -15,5 +22,115 @@
   ga('send', 'pageview');
 </script>
 {% endif %}
+
+
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ site.url }}/assets/js/plugins/bootstrap.min.js " | prepend: site.baseurl }}"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="{{ site.url }}/assets/js/plugins/hux-blog.min.js " | prepend: site.baseurl }}"></script>
+
+<!-- Service Worker -->
+{% if site.service-worker %}
+<script type="text/javascript">
+    if(navigator.serviceWorker){
+        // For security reasons, a service worker can only control the pages that are in the same directory level or below it. That's why we put sw.js at ROOT level.
+        navigator.serviceWorker
+            .register('/sw.js')
+            .then((registration) => {console.log('Service Worker Registered. ', registration)})
+            .catch((error) => {console.log('ServiceWorker registration failed: ', error)})
+    }
+</script>
+{% endif %}
+
+
+<!-- async load function -->
+<script>
+    function async(u, c) {
+      var d = document, t = 'script',
+          o = d.createElement(t),
+          s = d.getElementsByTagName(t)[0];
+      o.src = u;
+      if (c) { o.addEventListener('load', function (e) { c(null, e); }, false); }
+      s.parentNode.insertBefore(o, s);
+    }
+</script>
+
+<!-- 
+     Because of the native support for backtick-style fenced code blocks 
+     right within the Markdown is landed in Github Pages, 
+     From V1.6, There is no need for Highlight.js, 
+     so Huxblog drops it officially.
+
+     - https://github.com/blog/2100-github-pages-now-faster-and-simpler-with-jekyll-3-0  
+     - https://help.github.com/articles/creating-and-highlighting-code-blocks/ 
+     - https://github.com/jneen/rouge/wiki/list-of-supported-languages-and-lexers   
+-->
+<!--
+    <script>
+        async("http://cdn.bootcss.com/highlight.js/8.6/highlight.min.js", function(){
+            hljs.initHighlightingOnLoad();
+        })
+    </script>
+    <link href="http://cdn.bootcss.com/highlight.js/8.6/styles/github.min.css" rel="stylesheet">
+-->
+
+
+<!-- jquery.tagcloud.js -->
+<script>
+    // only load tagcloud.js in tag.html
+    if($('#tag_cloud').length !== 0){
+        async('{{ "/asset/js/plugins/jquery.tagcloud.js" | prepend: site.baseurl }}',function(){
+            $.fn.tagcloud.defaults = {
+                //size: {start: 1, end: 1, unit: 'em'},
+                color: {start: '#bbbbee', end: '#0085a1'},
+            };
+            $('#tag_cloud a').tagcloud();
+        })
+    }
+</script>
+
+<!--fastClick.js -->
+<script>
+    async("//cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js", function(){
+        var $nav = document.querySelector("nav");
+        if($nav) FastClick.attach($nav);
+    })
+</script>
+
+<!-- Baidu Tongji -->
+{% if site.ba_track_id %}
+<script>
+    // dynamic User by Hux
+    var _baId = '{{ site.ba_track_id }}';
+
+    // Originial
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?" + _baId;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+</script>
+{% endif %}
+
+<!-- share.js -->
+<script src="/assets/js/plugins/social-share.min.js"></script>
+
+<script>
+  socialShare('.social-share', {
+    sites: [
+      {% for i in site.social-share-items %}
+        '{{ i }}'
+        {% if forloop.last == false %},
+        {% endif %}
+      {% endfor %}
+    ],
+    wechatQrcodeTitle: "分享到微信朋友圈",
+    wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
+  });
+</script>
+
 
 {% if page.comments != false %}{% include disqus_comments.html %}{% endif %}

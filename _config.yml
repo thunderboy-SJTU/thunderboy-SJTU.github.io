@@ -1,5 +1,6 @@
-title:            Site Title
-description:      Describe your website here.
+title:            ThunderBoy's Blog
+description:      Hesitation is defeat.
+author:           Thunder Boy
 disqus_shortname: 
 reading_time:     true
 words_per_minute: 200
@@ -9,11 +10,11 @@ url:
 
 # Owner/author information
 owner:
-  name:           Your Name
-  avatar:         avatar.jpg
-  bio:            "Your bio goes here. It shouldn't be super long but a good sentence or two should suffice."
-  email:          you@email.com
+  name:           Thunder Boy
+  email:          thunderboy@sjtu.edu.cn
   # Social networking links used in footer. Update and remove as you like.
+  github: thunderboy-SJTU
+  webpage: thunderboy-SJTU@github.io
   twitter:        
   facebook:       
   github:         
@@ -25,8 +26,20 @@ owner:
   # google plus id, include the '+', eg +mmistakes
   google_plus:
 
+# Share : weibo, qq, wechat, tencent, douban, qzone, linkedin, diandian, facebook, twitter, google
+social-share: true
+social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
+
 # Background image to be tiled on all pages
 background: 
+
+# Sidebar settings
+sidebar: true                           # whether or not using Sidebar.
+sidebar-about-description: "Worse is better."
+sidebar-avatar: /img/profile.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+
+# Featured Tags
+featured-condition-size: 1              # 相同标签数量大于这个数，才会出现在首页
 
 # Analytics and webmaster tools stuff goes here
 google_analytics:   
@@ -35,7 +48,7 @@ google_verify:
 bing_verify:         
 
 # http://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-timezone:    America/New_York
+timezone:    Asia/Shanghai
 future:      false  # publish future dated posts --  true, false (default) 
 highlighter: rouge
 markdown:    kramdown

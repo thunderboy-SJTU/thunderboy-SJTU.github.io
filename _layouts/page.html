@@ -7,31 +7,18 @@
 {% include head.html %}
 </head>
 
-<body id="page" {% if page.image.feature %}class="feature"{% endif %}>
+<body id="page">
 
+{% include nav.html %}
 {% include browser-upgrade.html %}
-{% include navigation.html %}
 
-{% if page.image.feature %}
-<div class="entry-header">
-  {% if page.image.credit %}<div class="image-credit">Image source: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
-  <div class="entry-image">
-    <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}">
-  </div><!-- /.entry-image -->
-</div><!-- /.entry-header -->
-{% endif %}
 
 <div id="main" role="main">
   <article class="hentry">
-    <header class="header-title">
-      <div class="header-title-wrap">
+    <header class="header-title" id="particles-js">
+      <div class="header-title-wrap header">
         <h1 class="entry-title">{{ page.title }}</h1>
-        {% if site.reading_time %}
-        <p class="entry-reading-time">
-          <i class="fa fa-clock-o"></i>
-          {% include read-time.html %}
-        </p><!-- /.entry-reading-time -->
-        {% endif %}
+        <h2>{{ page.description }}</h2>
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">

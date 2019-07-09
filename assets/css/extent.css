@@ -1,0 +1,137 @@
+/* = = = = = = = = = = About Page Styles = = = = = = = = = = */
+.small-wrapper {
+    width: 700px;
+    max-width: 90%;
+    margin: 0 auto;
+  }
+  
+  .about-container {
+    margin: 50px 0 50px;
+  }
+  
+  .about-header {
+    position: relative;
+    text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+  }
+  
+  
+  .about-header .author-image-container {
+    width: 200px;
+    height: 200px;
+    -webkit-border-radius: 100%;
+            border-radius: 100%;
+    overflow: hidden;
+    margin: 0 auto 30px;
+  }
+  
+  .about-header .subtitle {
+    color: #311e3e;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    font-size:20px;
+    margin: 0;
+  }
+
+  .about-body .about-content {
+    font-size:15px;
+    margin: 0;
+  }
+  
+  .about-body .contact-list {
+    margin: 20px;
+    padding: 0;
+    list-style: none;
+    text-align: center;
+  }
+  
+  .about-body .contact-list li {
+    display: inline-block;
+    margin-left: 10px;
+  }
+  
+  .about-body .contact-list li:first-child {
+    margin-left: 0;
+  }
+  
+  .about-body .contact-list li a {
+    display: block;
+    color: #999999;
+    font-size: 21px;
+    text-decoration: none;
+    padding: 5px;
+    -webkit-transition: all 350ms cubic-bezier(0.13, 0.43, 0.54, 1.82);
+    transition: all 350ms cubic-bezier(0.13, 0.43, 0.54, 1.82);
+  }
+  
+  .about-body .contact-list li a:hover {
+    color: #87314e;
+    -webkit-transform: scale(1.3);
+        -ms-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  
+  /* = = = = = = = = = = Tags Styles = = = = = = = = = = */
+  .blog-tags {
+    margin: 100px 0 100px;
+  }
+  
+  .blog-tags h1 {
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    font-size: 36px;
+    text-align: center;
+    margin: 0 0 30px;
+    color: #311e3e;
+  }
+  
+  .blog-tags .tags {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .blog-tags .tags li a {
+    display: inline-block;
+    color: #311e3e;
+  }
+  
+  .blog-tags .tags li a:hover {
+    opacity: .8;
+  }
+  
+  .blog-tags .tag-list span a {
+    display: inline-block;
+    color: #87314e;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+  
+  .blog-tags .tag-list span a:hover {
+    text-decoration: underline;
+    opacity: .8;
+  }
+  
+  .blog-tags .tag-list small {
+    color: #311e3e;
+  }
+
+/* blockquote */
+ blockquote {
+    font-family: "Microsoft YaHei" ! important;
+    margin: 1rem -1rem 1rem -1.2rem;
+    padding: .2rem 1rem;
+    font-weight: 400;
+    border-left: .2rem solid #00a2ff;
+    background-color: #f2f6f9;
+    font-size: 1.0rem;
+    line-height: 2.5rem;
+}
+
+/* share */
+.social-share-wrapper {
+    margin:10px;
+}
