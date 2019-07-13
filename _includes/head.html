@@ -45,6 +45,8 @@
 
 <link rel="stylesheet" href="{{ site.url }}/assets/css/extent.css">
 
+<link rel="stylesheet" href="{{ site.url }}/assets/css/nav.css">
+
 <link rel="stylesheet" href="{{ site.url }}/assets/css/share.min.css">
 
 <!-- Webfonts -->
@@ -70,10 +72,33 @@
 <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.url }}/images/apple-touch-icon-144x144-precomposed.png">
 
 
+<!-- {% if site.title-background %}
+{% capture title-background %}{{ site.title-background }}{% endcapture %}
+{% unless title-background contains 'http://' or title-background contains 'https://' %}{% capture title-background %}{{ site.url }}/images/{{ title-background }}{% endcapture %}{% endunless %}
+<style type="text/css"> #particles-js {
+    background-image: url({{ title-background }});
+    background-repeat: no-repeat; 
+    width: 100%;
+    background-size: cover;
+    background-position: center center absolute;
+    z-index: 2;
+}</style>
+{% endif %} -->
+
 
 
 {% if page.image.background or site.background %}
 {% capture background %}{% if page.image.background %}{{ page.image.background }}{% else %}{{ site.background }}{% endif %}{% endcapture %}
 {% unless background contains 'http://' or background contains 'https://' %}{% capture background %}{{ site.url }}/images/{{ background }}{% endcapture %}{% endunless %}
-<style type="text/css">body {background-image:url({{ background }});}</style>
+<style type="text/css">body {
+    background-image: url({{ background }});
+    background-repeat: no-repeat; 
+    background-attachment:fixed;
+    background-size:100%;
+    background-position: center center;
+    background-size: cover; 
+    -webkit-background-size: cover;/* 兼容Webkit内核浏览器如Chrome和Safari */ 
+    -o-background-size: cover;/* 兼容Opera */ 
+    z-index: 1;
+}</style>
 {% endif %}

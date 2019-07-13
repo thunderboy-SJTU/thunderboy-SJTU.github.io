@@ -54,6 +54,33 @@ a {
 	}
 }
 
+.inline-list li a {
+	text-decoration: none;
+	color: rgba(#fff,0.8); 
+
+	&:visited { 
+		color: lighten(rgba(#fff,0.8), 20); 
+	}
+
+	&:hover { 
+		color: darken(rgba(#fff,0.8), 20); 
+	}
+
+	&:focus { 
+		outline: thin dotted; 
+		color: darken(rgba(#fff,0.8), 20);
+	}
+
+	&:hover, 
+	&:active { 
+		outline: 0; 
+	}
+}
+
+.inline-list li .current-page {
+	color: #fff; 
+}
+
 .link-arrow {
 	font-weight: 100;
 	text-decoration: underline;

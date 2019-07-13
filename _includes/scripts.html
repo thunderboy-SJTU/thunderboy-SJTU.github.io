@@ -1,5 +1,6 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{ site.url }}/assets/js/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="{{ site.url }}/assets/js/plugins/jquery.goup.min.js"></script>
 <script src="{{ site.url }}/assets/js/plugins/jquery.dlmenu.js" | prepend: site.baseurl }}"></script>
 <script src="{{ site.url }}/assets/js/plugins/jquery.fitvids.js" | prepend: site.baseurl }}"></script>
 <script src="{{ site.url }}/assets/js/plugins/jquery.magnific-popup.js" | prepend: site.baseurl }}"></script>
@@ -30,6 +31,9 @@
 <!-- Custom Theme JavaScript -->
 <script src="{{ site.url }}/assets/js/plugins/hux-blog.min.js " | prepend: site.baseurl }}"></script>
 
+
+
+
 <!-- Service Worker -->
 {% if site.service-worker %}
 <script type="text/javascript">
@@ -44,6 +48,8 @@
 {% endif %}
 
 
+
+
 <!-- async load function -->
 <script>
     function async(u, c) {
@@ -55,6 +61,7 @@
       s.parentNode.insertBefore(o, s);
     }
 </script>
+
 
 <!-- 
      Because of the native support for backtick-style fenced code blocks 
@@ -130,6 +137,42 @@
     wechatQrcodeTitle: "分享到微信朋友圈",
     wechatQrcodeHelper: '期待在朋友圈见到这篇文章'
   });
+</script>
+
+<script>
+  function goUpBtn() {
+    $.goup({
+        trigger: 500,
+        bottomOffset: 10,
+        locationOffset: 20,
+        containerRadius: 0,
+        containerColor: "#fff",
+        arrowColor: "#000",
+        goupSpeed: "normal"
+    });
+  }
+  // All others
+$(document).ready(function() {
+    // go up button
+    goUpBtn();
+    //image popup
+    $('.image-popup').magnificPopup({
+    type: 'image',
+    tLoading: 'Loading image #%curr%...',
+    gallery: {
+      enabled: true,
+      navigateByImgClick: true,
+      preload: [0,1] // Will preload 0 - before current, and 1 after the current image
+    },
+    image: {
+      tError: '<a href="%url%">Image #%curr%</a> could not be loaded.',
+    },
+    removalDelay: 300, // Delay in milliseconds before popup is removed
+    // Class that is added to body when popup is open. 
+    // make it unique to apply your CSS animations just to this exact popup
+    mainClass: 'mfp-fade'
+  });
+});
 </script>
 
 

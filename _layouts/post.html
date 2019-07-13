@@ -13,7 +13,12 @@
 {% include browser-upgrade.html %}
 
 
+
+
+
+
 <div id="main" role="main">
+
   <article class="hentry">
     <header class="header-title" id="particles-js">
       <div class="header-title-wrap header">
@@ -31,7 +36,7 @@
         {% endif %}
       </div><!-- /.header-title-wrap -->
     </header>
-    <div class="entry-content">
+    <div id="post-content" class="entry-content post-content post-article" >
       {{ content }}
       <footer class="entry-meta">
         <span class="entry-tags">{% for tag in page.tags %}<a href="{{ site.url }}/tags/#{{ tag }}" title="Pages tagged {{ tag }}" class="tag"><span class="term">{{ tag }}</span></a>{% unless forloop.last %}{% endunless %}{% endfor %}</span>
@@ -55,3 +60,45 @@
 
 </body>
 </html>
+
+<!-- TOC sidebar-->
+<script src="{{ site.url }}/assets/js/plugins/toc.js " | prepend: site.baseurl }}"></script>
+
+<!-- TOC sidebar-->
+<script src="{{ site.url }}/assets/js/plugins/scrollnav.min.umd.js " | prepend: site.baseurl }}"></script>
+
+<script>
+    //Scroll Nav
+    const content = document.querySelector('.post-article');
+    scrollnav.init(content, {
+        debug: false,
+        //easingStyle: 'linear',
+        sections: ($('.post-content > h1').length > 0) ? 'h1' : 'h2',
+        subSections: ($('.post-content > h1').length > 0) ? 'h2' : 'h3'
+    });
+    //Dynamically positon
+    var sideNav = function () {
+        var mainRect = document.getElementById('post-content').getBoundingClientRect();
+        //var oldReac = document.getElementsByClassName('scroll-nav')[0].getBoundingClientRect();
+        $('.hentry > nav').css('left', mainRect.right + 10 + 'px');
+    }
+    sideNav();
+    window.addEventListener("resize", sideNav);  
+
+    
+    window.onscroll = () => {   
+      var nav = $('.hentry > nav')[0];
+      if(nav != undefined){
+          var offset = 100;
+          var top = 60 * window.innerHeight / 100;
+          if(window.pageYOffset + offset > top) {
+            $('.hentry > nav').css("position", "fixed");
+            $('.hentry > nav').css("top", nav.scrollTop + offset);
+          }
+          else{
+            $('.hentry > nav').css("position", "absolute");
+            $('.hentry > nav').css("top", top);
+          }
+        }
+    }
+</script>

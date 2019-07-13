@@ -1,0 +1,49 @@
+.scroll-nav {
+  color: #fcfcfc;
+  font-weight: bold;
+  background-color: rgba(168, 168, 168, 0.8);
+  padding: 15px 10px;
+  position: absolute;
+  top: 60vh; }
+  @media only screen and (max-width: 992px) {
+    .scroll-nav {
+      display: none; } }
+  .scroll-nav a {
+    color: #fcfcfc;
+    text-decoration: none; }
+  .scroll-nav a:hover {
+    color: #e44a66; }
+  .scroll-nav:before {
+    content: "CATALOG:";
+    font-weight: bold; }
+
+.scroll-nav__list {
+  margin: 0;
+  padding-left: 1.4em;
+  list-style-type: upper-roman; }
+
+.scroll-nav__item {
+  margin-bottom: 5px; }
+
+.scroll-nav__item--active > a {
+  padding: 5px;
+  font-weight: bold;
+  position: relative;
+  color: #fcfcfc;
+  background: #e44a66;
+  text-decoration: none;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  transition: 0.5s; }
+  .scroll-nav__item--active > a:hover {
+    color: #fcfcfc; }
+
+.scroll-nav__link {
+  color: #0645ad;
+  text-decoration: none; }
+
+
+
+/*# sourceMappingURL=nav.css.map */
