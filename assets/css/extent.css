@@ -167,4 +167,9 @@ nav[data-toggle="toc"] {
   */
 }
 
+/* gittalk */
+#gitalk-container {
+  border-top: solid 2px rgba(238,238,238,0.8);
+}
+
 

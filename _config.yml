@@ -30,6 +30,16 @@ owner:
 social-share: true
 social-share-items: ['qq', 'wechat', 'weibo', 'twitter', 'facebook']
 
+# Gitalk
+gitalk:
+  enable: true    #是否开启Gitalk评论
+  clientID: 305e9e95baadeec21231                          #生成的clientID
+  clientSecret: 0d6dc51835533b44e96ae07ab2c6a4f1f5f50639    #生成的clientSecret
+  repo: thunderboy-SJTU.github.io    #仓库名称
+  owner: thunderboy-SJTU    #github用户名
+  admin: thunderboy-SJTU
+  distractionFreeMode: true #是否启用类似FB的阴影遮罩
+
 # Background image to be tiled on all pages
 title-background: bg3.jpg
 background: bg3.jpg

@@ -44,8 +44,8 @@
         <span class="author vcard"><span class="fn">{{ site.owner.name }}</span></span>{% endif %}
         {% if page.share != false %}{% include social-share.html %}{% endif %}
       </footer>
+      {% if page.comments != false %}<div id="gitalk-container"></div>{% endif %}
     </div><!-- /.entry-content -->
-    {% if page.comments != false and site.disqus_shortname %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
     {% if site.related_posts.size > 0 %}{% include read-more.html %}{% endif %}
   </article>
 </div><!-- /#main -->
