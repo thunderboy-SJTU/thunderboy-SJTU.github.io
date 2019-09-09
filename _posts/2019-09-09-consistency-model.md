@@ -15,10 +15,10 @@ tags: [Distributed Systems]
 
 对于一致性模型，Todd Lipton曾给出过如下定义：
 
-> Consistency model defines rules for the apparent order and visibility of updates, and it is a continuum with tradeoffs.    
+> **Consistency model** defines rules for the apparent order and visibility of updates, and it is a continuum with tradeoffs.    
 
 
-系统行为及表现的约束的不同，也衍生出了不同的一致性模型。根据约束的强弱，不同的一致性模型也存在的强弱之分。为了更详细地介绍一致性模型，本文列举了一些经典的一致性模型：
+系统行为及表现的约束的不同，也衍生出了不同的一致性模型。根据约束的强弱，不同的一致性模型也存在强弱之分。为了更详细地介绍一致性模型，本文列举了一些经典的一致性模型：
 
 * [Strict Consistency](#strict)
 * [Sequential Consistency](#sequential)
