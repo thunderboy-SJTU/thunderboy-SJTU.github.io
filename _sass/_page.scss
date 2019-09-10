@@ -23,7 +23,7 @@ body {
 }
 
 .entry-content {
-	@include font-size(16);
+	@include font-size(14);
 
 	// Dotted line underlines for links
 	p > a,
@@ -41,7 +41,7 @@ body {
 
 	.footnotes {
 		ol, li, p {
-			@include font-size(14);
+			@include font-size(12);
 		}
 	}
 }
@@ -291,6 +291,10 @@ header .entry-meta {
 			max-width: 800px;
 			margin: 50px auto 30px auto;
 			padding: 50px 80px;
+
+			> p:first-child {
+				@include font-size(16);
+			}
 		}
 	}
 
