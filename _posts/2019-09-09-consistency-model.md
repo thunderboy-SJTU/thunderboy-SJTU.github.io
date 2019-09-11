@@ -23,14 +23,11 @@ tags: [Distributed Systems, Consistency]
 
 不同的对于系统行为及表现的约束，也衍生出了一系列不同的一致性模型。根据约束的强弱，不同的一致性模型也存在强弱之分。为了更详细地介绍一致性模型，本文列举了一些经典的一致性模型：
 
-* [Strict Consistency](#strict)
-* [Sequential Consistency](#sequential)
-* [Release Consistency](#release)
-* [Causal Consistency](#causal)
-* [Processor Consistency](#processor)
-* [PRAM Consistency](#pram)
-* [Cache Coherence](#cache)
-* [Eventual Consistency](#eventual)
+- [Strict Consistency](#strict-consistency)
+    - [Linearizability vs. Serializability](#linearizability-vs-serializability)
+    - [Strict Consistency](#strict-consistency-1)
+- [Sequential Consistency](#sequential-consistency)
+- [Release Consistency](#release-consistency)
 
 在之后的篇章中，本文会逐一对上述一致性模型进行介绍。
 
@@ -60,7 +57,40 @@ Strict Consistency 是最强的一致性模型，它可以保证不同节点上�
 
 ## <span id="sequential">Sequential Consistency</span>
 
-明天继续填坑。
+相比于 Strict Consistency， Sequential Consistency 略微弱化了一致性。Sequential Consistency 不再要求各项操作严格按照真实的发生顺序进行排列，甚至不要求每个节点认为的操作顺序完全一致，但其需要满足下列两个rules：
+
+1. 对于同一节点（CPU）上的操作而言，其执行顺序应严格按照发生的顺序进行排列。
+2. 存在着某一全局的操作顺序，使得在每个节点上，其每一步操作执行后的结果应与该全局顺序中该步的执行结果完全一致。
+   
+第一条很好理解，在同一CPU上，所有的操作就是按顺序单线程依次执行的，因此，后发生的操作在 total order 中的顺序也必然在前发生的操作之后。第二条比较有意思，事实上， Sequential Consistency 并不要求所有节点都看到相同的全局顺序，但是，它们的执行结果应该符合某一全局的操作顺序。这句话比较难以理解，我在这里举如下这个例子：
+
+| Sequence |   P1   |   P2   |
+| :------: | :----: | :----: |
+|    1     | R(y) 0 | W(y) 1 |
+|    2     | W(x) 0 | R(y) 1 |
+
+显然，上述的结果满足 Sequential Consistency，我们可以至少列举出两种符合要求的 total order：
+
+* W(x)1 → R(y)0 → W(y)1 → R(y)1
+* R(y)0 → W(x)1 → W(y)1 → R(y)1
+  
+在不同节点眼中，它们看到的顺序可能为其中的任意一种。因此，我们只需最终的执行结果等价于某一全局的 total order 的结果，而无需所有节点看到的执行顺序完全相同。对于第二条，我们也可以换另一种表述，也就是任何读操作都应读到最新的写，而这里的最新是相对于 total order 而言的。
+
+一般来说，在保证每一处理器的操作在total order中按先后次序依次排列的约束下，我们可以使用 FIFO 队列来保证 Sequentual Consistency。对于同一变量，我们将其在不同节点上的所有操作都放入一个全局的 FIFO 队列中，从而保证在同一变量的写操作按照一个全局的顺序进行排列，并且读操作读到最新的写。
+
+Sequential Consistency 是一种较为常见的一致性模型，在许多较为注重一致性的系统中，Sequential Consistency 往往是其的不二选择。 用于并行计算的共享内存系统 [Ivy](https://cs.uwaterloo.ca/~Brecht/courses/702/Possible-Readings/vm-and-gc/ivy-shared-virtual-memory-li-icpp-1988.pdf "ivy"), 其论文中提及的各节点间的同步机制，就很好地实现了 Sequential Consistency （虽然那个时候应该还没有 Sequential Consistency 这一概念）。如果大家感兴趣的话，可以去拜读一下1988年的这篇论文，相信会对 Sequential Consistency 这一概念能有更深入的了解。
+
+
+
+## <span id="release">Release Consistency</span>
+
+明天有时间填坑。
+
+
+
+
+
+
 
 
 

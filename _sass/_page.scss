@@ -23,7 +23,7 @@ body {
 }
 
 .entry-content {
-	@include font-size(14);
+	@include font-size(15);
 
 	// Dotted line underlines for links
 	p > a,
@@ -41,7 +41,7 @@ body {
 
 	.footnotes {
 		ol, li, p {
-			@include font-size(12);
+			@include font-size(13);
 		}
 	}
 }
