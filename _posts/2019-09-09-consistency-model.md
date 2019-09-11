@@ -23,11 +23,15 @@ tags: [Distributed Systems, Consistency]
 
 不同的对于系统行为及表现的约束，也衍生出了一系列不同的一致性模型。根据约束的强弱，不同的一致性模型也存在强弱之分。为了更详细地介绍一致性模型，本文列举了一些经典的一致性模型：
 
-- [Strict Consistency](#strict-consistency)
-    - [Linearizability vs. Serializability](#linearizability-vs-serializability)
-    - [Strict Consistency](#strict-consistency-1)
-- [Sequential Consistency](#sequential-consistency)
-- [Release Consistency](#release-consistency)
+
+* [Strict Consistency](#strict)
+* [Sequential Consistency](#sequential)
+* [Release Consistency](#release)
+* [Casual Consistency](#casual)
+* [Processor Consistency](#processor)
+* [PRAM Consistency](#pram)
+* [Cache Coherence](#cache)
+* [Eventual Consistency](#eventual)
 
 在之后的篇章中，本文会逐一对上述一致性模型进行介绍。
 
